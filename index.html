@@ -206,6 +206,7 @@
         .pillar-card p { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
 
         /* --- LIVE AFFILIATIONS BLOCK --- */
+        
         .affiliations-wrapper {
             background-color: #FFFFFF;
             padding: 70px 0;
@@ -437,40 +438,108 @@
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
         .premium-review-card {
-            background: #FFFFFF;
-            border: 1px solid #E2E8F0;
-            border-radius: 12px;
-            padding: 60px 32px 36px 32px;
-            position: relative;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 60px 32px 36px 32px;
+    position: relative;
+    /* CHANGE THIS TO VISIBLE */
+    overflow: visible; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
         .premium-review-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 30px -10px rgba(10, 37, 64, 0.1);
         }
-        .review-avatar-wrapper {
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: #FFFFFF;
-            padding: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
-        .review-avatar-wrapper img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+        
+        /* Update your desktop styles to this */
+.review-avatar-wrapper {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Strict dimensions */
+    width: 80px !important;
+    height: 80px !important;
+    
+    /* Perfect Circle Mask */
+    border-radius: 50% !important; 
+    overflow: hidden !important;
+    
+    /* Alignment */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+/* 1. The Container: Stays a perfect, fixed 80px circle */
+.review-avatar-wrapper {
+    position: absolute !important;
+    top: -40px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50% !important;
+    
+    background: #FFFFFF !important;
+    padding: 4px !important; /* This creates the white ring */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+    
+    overflow: hidden !important; /* This is the "cookie cutter" */
+    z-index: 10 !important;
+    
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 2. The Image: Forces it to fill the hole perfectly */
+.review-avatar-wrapper img {
+    /* Set dimensions to exactly match the 80px container */
+    width: 80px !important;
+    height: 80px !important;
+    
+    /* 'contain' + 'center' ensures the whole image is visible and centered */
+    object-fit: contain !important; 
+    object-position: center !important;
+    
+    /* Remove rounding from the image so it doesn't fight the wrapper's mask */
+    border-radius: 0 !important; 
+    display: block !important;
+    margin: 0 !important;
+}
+/* 1. Force the carousel item to respect our shape */
+.slick-slide .review-avatar-wrapper {
+    overflow: hidden !important;
+    border-radius: 50% !important;
+    /* Ensure the wrapper stays centered even if Slick tries to shift it */
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: -40px !important;
+}
+
+/* 2. Lock the image rendering specifically for mobile */
+@media (max-width: 768px) {
+    .slick-slide .review-avatar-wrapper img {
+        /* Force the image to ignore the carousel's auto-width */
+        width: 80px !important; 
+        height: 80px !important;
+        object-fit: cover !important;
+        /* 'contain' + 'center' prevents the chop during the slide transition */
+        object-fit: contain !important; 
+        border-radius: 50% !important;
+    }
+}       
         .review-stars {
             color: #FBBF24; 
             font-size: 14px;
@@ -819,6 +888,23 @@
             .hero-input-row { grid-template-columns: 1fr; gap: 10px; }
             .hero-client-badge { flex-direction: column; text-align: center; gap: 8px; }
         }
+        @media (max-width: 480px) {
+    /* Create breathing room between the chart and the table */
+    .matrix-container {
+        gap: 60px !important; 
+        padding-bottom: 20px;
+    }
+    
+    /* Ensure the chart graphic stays contained without overflowing */
+    .matrix-graphic-slot {
+        padding: 16px !important;
+    }
+    
+    /* Adjust chart bars to prevent them from hitting the edges */
+    .chart-3d-viewport {
+        gap: 12px !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -866,7 +952,7 @@
             </div>
             
             <div class="hero-banner-slot">
-                <img src="https://i.ibb.co/fGC0JxzR/hero-banner.jpg" alt="ClaimCapsule Healthcare RCM Solution">
+                <img src="hero-banner.jpg" alt="ClaimCapsule Healthcare RCM Solution">
             </div>
         </div>
 
@@ -967,8 +1053,7 @@
                     </div>
 
                     <div class="chart-footer-note">
-                        <i class="fa-solid fa-circle-info" style="color: #00E5FF;"></i>
-                        <span>Interactive 3D Matrix: Data tracks show immediate operational yield.</span>
+                        
                     </div>
                 </div>
                 
@@ -1167,7 +1252,7 @@
                 </div>
 
                 <div class="faq-image-right-slot">
-                    <img src="https://i.ibb.co/ZRtpFgxs/FAQ-banner.jpg" alt="Enterprise Operations Framework">
+                    <img src="faq-banner.jpg" alt="Enterprise Operations Framework">
                 </div>
             </div>
 
@@ -1362,4 +1447,4 @@
         document.addEventListener("DOMContentLoaded", startAutoSliders);
     </script>
 </body>
-</html> 
+</html>
