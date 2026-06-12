@@ -11,7 +11,7 @@
     <style>
         /* --- BRAND DESIGN VARIABLES WITH ANCHOR BLUE PATTERNS --- */
         :root {
-            --brand-main-blue: #0A3A6B; /* Updated primary branding to deep navy blue */
+            --brand-main-blue: #0A3A6B; 
             --brand-deep-blue: #0A2540;
             --brand-dark-navy: #061224;
             --brand-footer-blue: #0A3A6B; 
@@ -111,29 +111,22 @@
         .hero-trust-inline { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 36px; font-size: 14px; font-weight: 700; color: var(--brand-deep-blue); }
         .hero-trust-inline i { color: #10B981; margin-right: 6px; }
         
-        /* --- HERO BANNER SLOT --- */
+        /* --- HERO BANNER SLOT UPGRADED FOR LIVE IMAGE --- */
         .hero-banner-slot {
             width: 100%;
             height: 420px;
-            background-color: #E2E8F0;
             border-radius: 16px;
-            border: 2px dashed #CBD5E1;
             box-shadow: var(--shadow-lg);
             overflow: hidden;
             position: relative;
+            background: none; 
+            border: none;     
         }
-        .banner-placeholder-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #64748B;
-            font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-align: center;
-            width: 90%;
+        .hero-banner-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
         }
 
         /* --- TRUST BADGE CONTAINER --- */
@@ -267,7 +260,7 @@
         .matrix-graphic-slot {
             width: 100%;
             min-height: 360px;
-            background: #0A3A6B; /* Updated background to matches requested brand blue */
+            background: #0A3A6B; 
             border-radius: 12px;
             padding: 24px;
             display: flex;
@@ -326,10 +319,10 @@
             box-shadow: inset -6px 0 12px rgba(0,0,0,0.2), 4px 0 10px rgba(0,0,0,0.15);
         }
         .bar-3d-cylinder.in-house {
-            background: linear-gradient(90deg, #475569 0%, #94A3B8 50%, #CBD5E1 100%); /* Premium Muted Ice Blue */
+            background: linear-gradient(90deg, #475569 0%, #94A3B8 50%, #CBD5E1 100%); 
         }
         .bar-3d-cylinder.claimcapsule {
-            background: linear-gradient(90deg, #00A3B8 0%, #00E5FF 50%, #80F3FF 100%); /* Premium Electric Cyan Glow */
+            background: linear-gradient(90deg, #00A3B8 0%, #00E5FF 50%, #80F3FF 100%); 
         }
         
         .bar-value-tag {
@@ -372,7 +365,7 @@
         .matrix-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-md); }
         table.evaluation-matrix { width: 100%; border-collapse: collapse; background: #FFFFFF; overflow: hidden; }
         table.evaluation-matrix th, table.evaluation-matrix td { padding: 22px 28px; text-align: left; }
-        table.evaluation-matrix th { background-color: var(--brand-main-blue); color: #FFFFFF; font-weight: 700; font-size: 16px; } /* Automatically converts header to #0A3A6B */
+        table.evaluation-matrix th { background-color: var(--brand-main-blue); color: #FFFFFF; font-weight: 700; font-size: 16px; } 
         table.evaluation-matrix tr { border-bottom: 1px solid var(--border-color); transition: var(--transition-bounce); }
         table.evaluation-matrix tr:last-child { border-bottom: none; }
         table.evaluation-matrix tr:hover { background-color: var(--bg-light); }
@@ -534,7 +527,7 @@
             border-radius: 5px;
         }
 
-        /* --- PREMIUM FAQ SECTION --- */
+        /* --- FAQ SECTION UPGRADED FOR LIVE IMAGE --- */
         .faq-block-section {
             background-color: #FFFFFF;
             padding: 90px 0;
@@ -595,21 +588,19 @@
         }
         .faq-card-item.active-faq .faq-card-answer { display: block; }
 
-        .faq-image-right-slot {
+        /* --- FAQ IMAGE WITH THE NEW BOX EFFECT --- */
+        .faq-image-right-slot img {
             width: 100%;
             height: 100%;
-            min-height: 380px;
-            background-color: rgba(255, 255, 255, 0.06);
-            border: 2px dashed rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: border-color 0.3s ease;
+            object-fit: cover;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.15); /* Adds the subtle inner line */
+            border-radius: 12px;
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.2), 
+                0 10px 20px -3px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1); /* Elegant card depth */
         }
-        .faq-image-right-slot:hover { border-color: #00E5FF; }
-        .faq-blank-content { text-align: center; color: rgba(255, 255, 255, 0.4); padding: 20px; }
-        .faq-blank-content i { font-size: 48px; margin-bottom: 12px; color: rgba(255, 255, 255, 0.3); }
-        .faq-blank-content p { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         /* Action Targets under FAQ */
         .faq-actions-row {
@@ -875,11 +866,7 @@
             </div>
             
             <div class="hero-banner-slot">
-                <div class="banner-placeholder-text">
-                    <i class="fa-regular fa-image" style="font-size:28px; margin-bottom:8px; display:block; color:#94A3B8;"></i>
-                    Optimized Responsive Banner Slot<br>
-                    <span style="font-size:11px; font-weight:500; text-transform:none; color:#94A3B8;">Scales safely on Mobile, Tablet & PC viewports</span>
-                </div>
+                <img src="https://i.ibb.co/fGC0JxzR/hero-banner.jpg" alt="ClaimCapsule Healthcare RCM Solution">
             </div>
         </div>
 
@@ -956,9 +943,11 @@
                     <div class="chart-3d-viewport">
                         <div class="chart-column-group">
                             <div class="bars-3d-flex">
-                                <div class="bar-3d-cylinder in-house" style="height: 136px;"> <span class="bar-value-tag">68%</span>
+                                <div class="bar-3d-cylinder in-house" style="height: 136px;"> 
+                                    <span class="bar-value-tag">68%</span>
                                 </div>
-                                <div class="bar-3d-cylinder claimcapsule" style="height: 198px;"> <span class="bar-value-tag">99%</span>
+                                <div class="bar-3d-cylinder claimcapsule" style="height: 198px;"> 
+                                    <span class="bar-value-tag">99%</span>
                                 </div>
                             </div>
                             <span class="chart-axis-label">Claim Acceptance Rate</span>
@@ -966,9 +955,11 @@
 
                         <div class="chart-column-group">
                             <div class="bars-3d-flex">
-                                <div class="bar-3d-cylinder in-house" style="height: 164px;"> <span class="bar-value-tag">82%</span>
+                                <div class="bar-3d-cylinder in-house" style="height: 164px;"> 
+                                    <span class="bar-value-tag">82%</span>
                                 </div>
-                                <div class="bar-3d-cylinder claimcapsule" style="height: 196px;"> <span class="bar-value-tag">98%</span>
+                                <div class="bar-3d-cylinder claimcapsule" style="height: 196px;"> 
+                                    <span class="bar-value-tag">98%</span>
                                 </div>
                             </div>
                             <span class="chart-axis-label">Revenue Recovered</span>
@@ -1176,10 +1167,7 @@
                 </div>
 
                 <div class="faq-image-right-slot">
-                    <div class="faq-blank-content">
-                        <i class="fa-solid fa-shield-cat"></i>
-                        <p>Optimized Asset Image Placement Area</p>
-                    </div>
+                    <img src="https://i.ibb.co/ZRtpFgxs/FAQ-banner.jpg" alt="Enterprise Operations Framework">
                 </div>
             </div>
 
@@ -1187,9 +1175,9 @@
                 <a href="#qualification-wizard" class="action-redirect-card">
                     <div class="action-icon-box"><i class="fa-solid fa-paste"></i></div>
                     <div>
-                        <h3>Schedule a FREE Demo</h3>
-                        <p>Sign up and book a free service demo</p>
-                        <span class="action-link-text">Book Free Demo <i class="fa-solid fa-arrow-right-long"></i></span>
+                        <h3>Schedule a Demo</h3>
+                        <p>Sign up and book a service demo</p>
+                        <span class="action-link-text">Try Now <i class="fa-solid fa-arrow-right-long"></i></span>
                     </div>
                 </a>
                 <a href="#qualification-wizard" class="action-redirect-card">
@@ -1197,7 +1185,7 @@
                     <div>
                         <h3>Get Started Today</h3>
                         <p>Choose the best package for your practice</p>
-                        <span class="action-link-text">Try Claim Capsule <i class="fa-solid fa-arrow-right-long"></i></span>
+                        <span class="action-link-text">Try Claim Capsule Now <i class="fa-solid fa-arrow-right-long"></i></span>
                     </div>
                 </a>
             </div>
@@ -1240,16 +1228,16 @@
                     <h4>Services Grid</h4>
                     <ul>
                         <li><i class="fa-solid fa-chevron-right nav-indicator"></i> <a href="#">Consulting Services</a></li>
-                        <li><i class="fa-solid fa-chevron-right nav-indicator"></i> <a href="#">Medical Transcription Services</a></li>
                         <li><i class="fa-solid fa-chevron-right nav-indicator"></i> <a href="#">Finance and Accounting</a></li>
                         <li><i class="fa-solid fa-chevron-right nav-indicator"></i> <a href="#">Web Development Services</a></li>
                         <li><i class="fa-solid fa-chevron-right nav-indicator"></i> <a href="#">Healthcare Services</a></li>
+                        <li><i class="fa-solid fa-chevron-right nav-indicator"></i> <a href="#">Medical Transcription Services</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <span>&copy; 2026 RevExp. All rights reserved.</span>
+                <span>&copy; 2026 RevExp. All rights reserved. Enterprise RCM Design Solutions.</span>
                 <span>HIPAA Compliant & AAPC Certified Network Operations</span>
             </div>
         </div>
@@ -1374,4 +1362,4 @@
         document.addEventListener("DOMContentLoaded", startAutoSliders);
     </script>
 </body>
-</html>
+</html> 
