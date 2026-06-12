@@ -87,15 +87,18 @@
         }
         .hero-input-row input:focus { border-color: var(--brand-main-blue); box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.08); }
         .btn-form-orange {
-            width: 100%; display: inline-block; background-color: var(--action-orange); color: #FFFFFF;
-            padding: 18px 38px; font-size: 16px; font-weight: 700; text-decoration: none; text-transform: uppercase;
-            border-radius: 6px; border: none; cursor: pointer; transition: var(--transition-bounce);
-            box-shadow: 0 4px 14px rgba(255, 107, 53, 0.3); text-align: center;
-        }
-        .btn-form-orange:hover {
-            background-color: #0A3A6B; transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.4);
-        }
+    width: 100%; display: inline-block; 
+    background-color: #0A3A6B; /* Changed from var(--action-orange) to your deep blue */
+    color: #FFFFFF;
+    padding: 18px 38px; font-size: 16px; font-weight: 700; text-decoration: none; text-transform: uppercase;
+    border-radius: 6px; border: none; cursor: pointer; transition: var(--transition-bounce);
+    box-shadow: 0 4px 14px rgba(10, 58, 107, 0.2); text-align: center; /* Adjusted shadow to match blue */
+}
+.btn-form-orange:hover {
+    background-color: #FF6B35; /* Changed to turn orange when hovered or touched */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.4); /* Vibrant orange glow */
+}
 
         /* --- Client Doctor Trust Badge --- */
         .hero-client-badge { display: flex; align-items: center; gap: 14px; margin-top: 10px; }
