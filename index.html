@@ -11,19 +11,19 @@
     <style>
         /* --- BRAND DESIGN VARIABLES WITH ANCHOR BLUE PATTERNS --- */
         :root {
-            --brand-main-blue: #0066CC;
+            --brand-main-blue: #0A3A6B; /* Updated primary branding to deep navy blue */
             --brand-deep-blue: #0A2540;
             --brand-dark-navy: #061224;
             --brand-footer-blue: #0A3A6B; 
-            --action-deep-blue: #0A3A6B;
+            --action-orange: #FF6B35;
             --text-dark: #1A202C;
             --text-muted: #4A5568;
             --bg-light: #F8F9FA;
             --bg-tint: #F0F7FF;
             --border-color: #E2E8F0;
-            --shadow-sm: 0 2px 4px rgba(0, 102, 204, 0.02);
-            --shadow-md: 0 10px 30px rgba(0, 102, 204, 0.05);
-            --shadow-lg: 0 20px 50px rgba(0, 102, 204, 0.12);
+            --shadow-sm: 0 2px 4px rgba(10, 58, 107, 0.02);
+            --shadow-md: 0 10px 30px rgba(10, 58, 107, 0.05);
+            --shadow-lg: 0 20px 50px rgba(10, 58, 107, 0.12);
             --transition-bounce: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
@@ -85,20 +85,18 @@
             width: 100%; padding: 16px 20px; font-size: 14px; color: var(--text-dark);
             border: 1px solid var(--border-color); border-radius: 6px; outline: none; transition: var(--transition-bounce);
         }
-        .hero-input-row input:focus { border-color: var(--brand-main-blue); box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.08); }
+        .hero-input-row input:focus { border-color: var(--brand-main-blue); box-shadow: 0 0 0 3px rgba(10, 58, 107, 0.08); }
+        
         .btn-form-orange {
-    width: 100%; display: inline-block; 
-    background-color: #0A3A6B; /* Changed from var(--action-orange) to your deep blue */
-    color: #FFFFFF;
-    padding: 18px 38px; font-size: 16px; font-weight: 700; text-decoration: none; text-transform: uppercase;
-    border-radius: 6px; border: none; cursor: pointer; transition: var(--transition-bounce);
-    box-shadow: 0 4px 14px rgba(10, 58, 107, 0.2); text-align: center; /* Adjusted shadow to match blue */
-}
-.btn-form-orange:hover {
-    background-color: #FF6B35; /* Changed to turn orange when hovered or touched */
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.4); /* Vibrant orange glow */
-}
+            width: 100%; display: inline-block; background-color: #0A3A6B; color: #FFFFFF;
+            padding: 18px 38px; font-size: 16px; font-weight: 700; text-decoration: none; text-transform: uppercase;
+            border-radius: 6px; border: none; cursor: pointer; transition: var(--transition-bounce);
+            box-shadow: 0 4px 14px rgba(10, 58, 107, 0.2); text-align: center;
+        }
+        .btn-form-orange:hover {
+            background-color: #FF6B35; transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.4);
+        }
 
         /* --- Client Doctor Trust Badge --- */
         .hero-client-badge { display: flex; align-items: center; gap: 14px; margin-top: 10px; }
@@ -252,11 +250,24 @@
             justify-content: center;
             transition: transform 0.25s ease;
         }
-/* --- PREMIUM 3D VERTICAL CHART GRAPHIC SLOT --- */
+
+        /* --- FINANCIAL IMPACT MATRICES --- */
+        .financial-matrix-section {
+            padding: 90px 0;
+            background-color: #FFFFFF;
+        }
+        .matrix-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        /* --- PREMIUM 3D VERTICAL CHART GRAPHIC SLOT --- */
         .matrix-graphic-slot {
             width: 100%;
             min-height: 360px;
-            background: #0066CC; /* Your primary brand blue background */
+            background: #0A3A6B; /* Updated background to matches requested brand blue */
             border-radius: 12px;
             padding: 24px;
             display: flex;
@@ -275,10 +286,9 @@
         .chart-title { font-size: 14px; font-weight: 700; color: #00E5FF; text-transform: uppercase; letter-spacing: 0.5px; }
         .chart-legend { display: flex; gap: 12px; font-size: 11px; font-weight: 600; }
         .legend-item { display: flex; align-items: center; gap: 6px; }
-        .legend-dot.blue { width: 10px; height: 10px; background: #0A2540; border-radius: 50%; }
-        .legend-dot.orange { width: 10px; height: 10px; background: #FF6B35; border-radius: 50%; }
+        .legend-dot.blue { width: 10px; height: 10px; background: #94A3B8; border-radius: 50%; }
+        .legend-dot.orange { width: 10px; height: 10px; background: #00E5FF; border-radius: 50%; }
 
-        /* 3D Vertical Columns Layout */
         .chart-3d-viewport {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -304,10 +314,9 @@
             justify-content: center;
             position: relative;
             padding-bottom: 8px;
-            border-bottom: 4px solid rgba(10, 37, 64, 0.4); /* 3D Base Platform Edge */
+            border-bottom: 4px solid rgba(255, 255, 255, 0.2); 
         }
         
-        /* Premium 3D Cylinder Simulation Styles */
         .bar-3d-cylinder {
             width: 32px;
             border-radius: 20px 20px 0 0;
@@ -317,13 +326,12 @@
             box-shadow: inset -6px 0 12px rgba(0,0,0,0.2), 4px 0 10px rgba(0,0,0,0.15);
         }
         .bar-3d-cylinder.in-house {
-            background: linear-gradient(90deg, #061224 0%, #0A2540 50%, #1A365D 100%);
+            background: linear-gradient(90deg, #475569 0%, #94A3B8 50%, #CBD5E1 100%); /* Premium Muted Ice Blue */
         }
         .bar-3d-cylinder.claimcapsule {
-            background: linear-gradient(90deg, #D44D1D 0%, #FF6B35 50%, #FF9E79 100%);
+            background: linear-gradient(90deg, #00A3B8 0%, #00E5FF 50%, #80F3FF 100%); /* Premium Electric Cyan Glow */
         }
         
-        /* Value Tooltip Floating Tags */
         .bar-value-tag {
             position: absolute;
             top: -28px;
@@ -340,12 +348,11 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
         .bar-3d-cylinder.claimcapsule .bar-value-tag {
-            background: #0A2540;
-            color: #00E5FF;
-            border-color: #00E5FF;
+            background: #FFFFFF;
+            color: #0A3A6B;
+            border-color: #FFFFFF;
         }
 
-        /* Hover Interaction Scale Pop */
         .bar-3d-cylinder:hover {
             transform: scaleY(1.05);
             filter: brightness(1.1);
@@ -360,11 +367,12 @@
             line-height: 1.2;
             min-height: 26px;
         }
-        .chart-footer-note { font-size: 11px; color: #E2E8F0; opacity: 0.9; font-style: italic; display: flex; align-items: center; gap: 6px; justify-content: flex-start; }         
+        .chart-footer-note { font-size: 11px; color: #E2E8F0; opacity: 0.9; font-style: italic; display: flex; align-items: center; gap: 6px; justify-content: flex-start; }
+
         .matrix-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-md); }
         table.evaluation-matrix { width: 100%; border-collapse: collapse; background: #FFFFFF; overflow: hidden; }
         table.evaluation-matrix th, table.evaluation-matrix td { padding: 22px 28px; text-align: left; }
-        table.evaluation-matrix th { background-color: var(--brand-main-blue); color: #FFFFFF; font-weight: 700; font-size: 16px; }
+        table.evaluation-matrix th { background-color: var(--brand-main-blue); color: #FFFFFF; font-weight: 700; font-size: 16px; } /* Automatically converts header to #0A3A6B */
         table.evaluation-matrix tr { border-bottom: 1px solid var(--border-color); transition: var(--transition-bounce); }
         table.evaluation-matrix tr:last-child { border-bottom: none; }
         table.evaluation-matrix tr:hover { background-color: var(--bg-light); }
@@ -408,7 +416,7 @@
             border-radius: 8px; outline: none; width: 100%; transition: var(--transition-bounce);
             font-family: inherit;
         }
-        .fields-vertical-stack input:focus { border-color: var(--brand-main-blue); box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1); }
+        .fields-vertical-stack input:focus { border-color: var(--brand-main-blue); box-shadow: 0 0 0 4px rgba(10, 58, 107, 0.1); }
         .submit-cta {
             width: 100%; background-color: var(--action-orange); color: #FFFFFF; border: none;
             padding: 18px; font-size: 16px; font-weight: 700; border-radius: 8px; cursor: pointer;
@@ -696,11 +704,12 @@
             .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
         }
 
-        /* --- Crisp & Clean 3x2 Rigid Layout for Desktop --- */
+        /* --- Crisp & Clean Modern Flex & Layout Engine For Desktop screens --- */
         @media (min-width: 1025px) {
             .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 50px; text-align: left; }
             .pillar-grid { grid-template-columns: repeat(3, 1fr); }
             .testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+            
             /* Forces Side-by-Side Horizontal Layout for Chart and Table on Desktop */
             .matrix-container { 
                 display: flex !important;
@@ -803,7 +812,6 @@
 
         @media (max-width: 480px) {
             .hero-banner-slot { height: 230px; } 
-            .matrix-graphic-slot { height: 180px; } 
             .hero-left h1 { font-size: 28px; }
             .hero-left p { font-size: 16px; }
             .section-title { font-size: 26px; }
@@ -935,7 +943,8 @@
                 <p class="section-subtitle">See how enterprise outsourcing completely changes cash yield parameters over standard internal workflows.</p>
             </div>
             
-            <div class="matrix-graphic-slot">
+            <div class="matrix-container">
+                <div class="matrix-graphic-slot">
                     <div class="chart-header">
                         <span class="chart-title"><i class="fa-solid fa-cube"></i> Performance Scaling Matrix</span>
                         <div class="chart-legend">
@@ -971,6 +980,8 @@
                         <span>Interactive 3D Matrix: Data tracks show immediate operational yield.</span>
                     </div>
                 </div>
+                
+                <div class="matrix-wrapper">
                     <table class="evaluation-matrix">
                         <thead>
                             <tr>
@@ -1178,7 +1189,7 @@
                     <div>
                         <h3>Schedule a FREE Demo</h3>
                         <p>Sign up and book a free service demo</p>
-                        <span class="action-link-text">Free Demo <i class="fa-solid fa-arrow-right-long"></i></span>
+                        <span class="action-link-text">Book Free Demo <i class="fa-solid fa-arrow-right-long"></i></span>
                     </div>
                 </a>
                 <a href="#qualification-wizard" class="action-redirect-card">
@@ -1186,7 +1197,7 @@
                     <div>
                         <h3>Get Started Today</h3>
                         <p>Choose the best package for your practice</p>
-                        <span class="action-link-text">Try Claim Capsule Now <i class="fa-solid fa-arrow-right-long"></i></span>
+                        <span class="action-link-text">Try Claim Capsule <i class="fa-solid fa-arrow-right-long"></i></span>
                     </div>
                 </a>
             </div>
@@ -1229,16 +1240,16 @@
                     <h4>Services Grid</h4>
                     <ul>
                         <li><i class="fa-solid fa-chevron-right nav-indicator"></i> <a href="#">Consulting Services</a></li>
+                        <li><i class="fa-solid fa-chevron-right nav-indicator"></i> <a href="#">Medical Transcription Services</a></li>
                         <li><i class="fa-solid fa-chevron-right nav-indicator"></i> <a href="#">Finance and Accounting</a></li>
                         <li><i class="fa-solid fa-chevron-right nav-indicator"></i> <a href="#">Web Development Services</a></li>
                         <li><i class="fa-solid fa-chevron-right nav-indicator"></i> <a href="#">Healthcare Services</a></li>
-                        <li><i class="fa-solid fa-chevron-right nav-indicator"></i> <a href="#">Medical Transcription Services</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <span>&copy; 2024 RevExp. All rights reserved. Claim Capsule Software.</span>
+                <span>&copy; 2026 RevExp. All rights reserved.</span>
                 <span>HIPAA Compliant & AAPC Certified Network Operations</span>
             </div>
         </div>
@@ -1294,7 +1305,6 @@
         let testimonialInterval;
         let logoInterval;
 
-        // Testimonial Translation Slider
         function switchCarouselSlide(index) {
             if (window.innerWidth > 1024) return; 
             activeSlideIndex = index;
@@ -1308,7 +1318,6 @@
             if(dots[index]) dots[index].classList.add('dot-active');
         }
 
-        // Affiliations Single Logo Translation Slider
         function switchLogoSlide(index) {
             if (window.innerWidth > 1024) return;
             const track = document.querySelector('.logo-slider-track');
@@ -1319,14 +1328,11 @@
             }
             activeLogoIndex = index;
 
-            // Shift distance matches mobile dimension track width variables step rules setup
             track.style.transform = `translateX(-${index * 220}px)`;
         }
 
-        // Trigger Automated Interval Loops Sequences
         function startAutoSliders() {
             if (window.innerWidth <= 1024) {
-                // Testimonials rotation loop tracking intervals (Every 4 Seconds)
                 if (!testimonialInterval) {
                     testimonialInterval = setInterval(() => {
                         activeSlideIndex = (activeSlideIndex + 1) % 3; 
@@ -1334,7 +1340,6 @@
                     }, 4000);
                 }
                 
-                // Individual client branding logo sliders loop intervals (Every 3 Seconds)
                 if (!logoInterval) {
                     logoInterval = setInterval(() => {
                         switchLogoSlide(activeLogoIndex + 1);
@@ -1345,7 +1350,6 @@
             }
         }
 
-        // Wipe intervals instantly when rendering over Desktop layout viewports
         function clearIntervals() {
             clearInterval(testimonialInterval);
             clearInterval(logoInterval);
@@ -1353,10 +1357,10 @@
             logoInterval = null;
             
             document.getElementById('testimonial-track').style.transform = "none";
-            document.querySelector('.logo-slider-track').style.transform = "none";
+            const logoTrack = document.querySelector('.logo-slider-track');
+            if(logoTrack) logoTrack.style.transform = "none";
         }
 
-        // Auto update coordinate calculations on layout transformations
         window.addEventListener('resize', () => {
             if(window.innerWidth > 1024) {
                 clearIntervals();
@@ -1367,7 +1371,6 @@
             }
         });
 
-        // Initialize script parameters on load
         document.addEventListener("DOMContentLoaded", startAutoSliders);
     </script>
 </body>
