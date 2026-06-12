@@ -431,18 +431,25 @@
             overflow: hidden;
         }
         .testimonials-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-top: 70px;
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .premium-review-card {
+    display: grid;
+    /* This creates 1 column on mobile, 3 on desktop automatically */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.premium-review-card {
     background: #FFFFFF;
     border: 1px solid #E2E8F0;
     border-radius: 12px;
-    padding: 60px 32px 36px 32px;
+    padding: 40px 32px 36px 32px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
     /* CHANGE THIS TO VISIBLE */
     overflow: visible; 
     display: flex;
@@ -455,91 +462,70 @@
             box-shadow: 0 20px 30px -10px rgba(10, 37, 64, 0.1);
         }
         
-        /* Update your desktop styles to this */
+        /* Your clean, circular avatar style */
 .review-avatar-wrapper {
-    position: absolute;
-    top: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    /* Strict dimensions */
-    width: 80px !important;
-    height: 80px !important;
-    
-    /* Perfect Circle Mask */
-    border-radius: 50% !important; 
-    overflow: hidden !important;
-    
-    /* Alignment */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     background: #FFFFFF;
+    padding: 4px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    z-index: 10;
+    overflow: hidden;
+    margin-bottom: 20px;
+    flex-shrink: 0;
 }
 
-/* 1. The Container: Stays a perfect, fixed 80px circle */
+.review-avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+/* We use !important to force the browser to ignore the Slider's JS */
+
 .review-avatar-wrapper {
     position: absolute !important;
     top: -40px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    
     width: 80px !important;
     height: 80px !important;
     border-radius: 50% !important;
-    
     background: #FFFFFF !important;
-    padding: 4px !important; /* This creates the white ring */
+    padding: 4px !important;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
-    
-    overflow: hidden !important; /* This is the "cookie cutter" */
-    z-index: 10 !important;
-    
+    overflow: hidden !important; 
+    z-index: 99 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    flex-shrink: 0 !important;
 }
 
-/* 2. The Image: Forces it to fill the hole perfectly */
 .review-avatar-wrapper img {
-    /* Set dimensions to exactly match the 80px container */
     width: 80px !important;
     height: 80px !important;
-    
-    /* 'contain' + 'center' ensures the whole image is visible and centered */
-    object-fit: contain !important; 
-    object-position: center !important;
-    
-    /* Remove rounding from the image so it doesn't fight the wrapper's mask */
-    border-radius: 0 !important; 
+    object-fit: cover !important;
+    object-position: center top !important;
+    border-radius: 50% !important; /* Force the image itself to be a circle */
     display: block !important;
-    margin: 0 !important;
-}
-/* 1. Force the carousel item to respect our shape */
-.slick-slide .review-avatar-wrapper {
-    overflow: hidden !important;
-    border-radius: 50% !important;
-    /* Ensure the wrapper stays centered even if Slick tries to shift it */
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    top: -40px !important;
 }
 
-/* 2. Lock the image rendering specifically for mobile */
+/* --- MOBILE VIEW: SHOW PHOTOS, REMOVE PLACEHOLDER --- */
 @media (max-width: 768px) {
-    .slick-slide .review-avatar-wrapper img {
-        /* Force the image to ignore the carousel's auto-width */
-        width: 80px !important; 
-        height: 80px !important;
-        object-fit: cover !important;
-        /* 'contain' + 'center' prevents the chop during the slide transition */
-        object-fit: contain !important; 
-        border-radius: 50% !important;
+    .review-avatar-wrapper img {
+        display: block !important; /* This forces the photo to appear */
     }
-}       
+    
+    .review-avatar-wrapper {
+        /* Remove the placeholder icon and background color */
+        background-color: #FFFFFF !important;
+        background-image: none !important;
+    }
+}
+
+
+} 
         .review-stars {
             color: #FBBF24; 
             font-size: 14px;
