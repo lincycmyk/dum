@@ -701,8 +701,23 @@
             .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 50px; text-align: left; }
             .pillar-grid { grid-template-columns: repeat(3, 1fr); }
             .testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
-            .matrix-container { flex-direction: row; }
-            .matrix-graphic-slot, .matrix-wrapper { flex: 1; width: 50%; }
+            /* Forces Side-by-Side Horizontal Layout for Chart and Table on Desktop */
+            .matrix-container { 
+                display: flex !important;
+                flex-direction: row !important; 
+                gap: 40px !important;
+                align-items: stretch !important;
+            }
+            .matrix-graphic-slot { 
+                flex: 1 !important; 
+                width: 50% !important;
+                margin: 0 !important;
+            }
+            .matrix-wrapper { 
+                flex: 1 !important; 
+                width: 50% !important;
+                margin: 0 !important;
+            }
 
             .logo-slider-container {
                 display: flex;
